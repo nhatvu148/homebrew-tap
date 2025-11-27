@@ -6,9 +6,10 @@ class VideoTranscriberMcp < Formula
   sha256 "73c40c335a911869710007895aca33b9ebe37c4667afe9876f6e0ff9268ee0e1"
   license "MIT"
 
+  depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "yt-dlp"
   depends_on "ffmpeg"
+  depends_on "yt-dlp"
 
   def install
     system "cargo", "install", *std_cargo_args
