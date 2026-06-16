@@ -1,9 +1,9 @@
 class VideoTranscriberMcp < Formula
   desc "High-performance video transcription MCP server using whisper.cpp"
   homepage "https://github.com/nhatvu148/video-transcriber-mcp-rs"
-  url "https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/v0.6.0.tar.gz"
-  # To generate SHA256: curl -sL https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/v0.6.0.tar.gz | shasum -a 256
-  sha256 "ad404631598ac6aa3e6acecaec6579b30f78a41ea7117e4693e866cc786435ba"
+  url "https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/v0.7.0.tar.gz"
+  # To generate SHA256: curl -sL https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/v0.7.0.tar.gz | shasum -a 256
+  sha256 "f8b6307c3e5da5028543566782053dd3d01f25b7d4efb81c4c10d1051b94ad38"
   license "MIT"
 
   depends_on "cmake" => :build
