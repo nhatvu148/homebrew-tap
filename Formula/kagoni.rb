@@ -8,11 +8,14 @@ class Kagoni < Formula
 
   depends_on "rust" => :build
 
-  # Default features only, matching `cargo install kagoni`. The `remote` feature
-  # (ssh:// and https:// daemons) pulls in ~34 extra crates that a local-socket
-  # user never touches; anyone who needs it can `cargo install kagoni --features remote`.
+  # Built WITH the `remote` feature, so ssh:// and https:// daemons work out of
+  # the box. It costs ~34 extra crates and ~1.3 MB of binary, which is a real
+  # trade for a published crate defaulting to the common case — but a Homebrew
+  # user who has to discover mid-task that their install cannot reach a remote
+  # host, and then rebuild via cargo, has been handed a worse deal than the
+  # bytes were worth.
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features", "remote", *std_cargo_args
   end
 
   def caveats
@@ -31,6 +34,13 @@ class Kagoni < Formula
         kagoni --read-only
 
       Write tools are then absent from the tool list rather than refused.
+
+      Remote daemons work with this build:
+
+        kagoni --check --socket ssh://user@host
+
+      Prefer ssh:// over exposing tcp://:2375, which is unauthenticated root
+      on that machine.
 
       Check which engine it resolved before wiring it up:
 
