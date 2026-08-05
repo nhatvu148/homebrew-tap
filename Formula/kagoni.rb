@@ -1,9 +1,9 @@
 class Kagoni < Formula
   desc "Engine-agnostic Docker MCP server with token-bounded reads and gated writes"
   homepage "https://github.com/nhatvu148/kagoni"
-  url "https://github.com/nhatvu148/kagoni/archive/v0.1.0.tar.gz"
-  # To generate SHA256: curl -sL https://github.com/nhatvu148/kagoni/archive/v0.1.0.tar.gz | shasum -a 256
-  sha256 "74cba7eeb8922716f377a1da346fb750366a0e4484e494890c91a40a23dedc7b"
+  url "https://github.com/nhatvu148/kagoni/archive/v0.2.0.tar.gz"
+  # To generate SHA256: curl -sL https://github.com/nhatvu148/kagoni/archive/v0.2.0.tar.gz | shasum -a 256
+  sha256 "f4b4b62ca04177fbfc1e91a9a236c3a16a2739682bec4730e5e6ad441b4822a7"
   license any_of: ["MIT", "Apache-2.0"]
 
   depends_on "rust" => :build
