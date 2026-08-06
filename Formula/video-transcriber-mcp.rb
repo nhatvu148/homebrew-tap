@@ -1,9 +1,9 @@
 class VideoTranscriberMcp < Formula
   desc "High-performance video transcription MCP server using whisper.cpp"
   homepage "https://github.com/nhatvu148/video-transcriber-mcp-rs"
-  url "https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/v0.8.0.tar.gz"
-  # To generate SHA256: curl -sL https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/v0.8.0.tar.gz | shasum -a 256
-  sha256 "8933b51dcb48d8307ab156834df0ef379fa63e5725e2a01617031a85f787bf22"
+  url "https://github.com/nhatvu148/video-transcriber-mcp-rs/archive/refs/tags/v0.9.0.tar.gz"
+  # SHA256: curl -sL <url above> | shasum -a 256
+  sha256 "dab4e8086d3119b70f85c1f5b55b5d811ffc4d465d4ca57ce722d3832de5bbf4"
   license "MIT"
 
   depends_on "cmake" => :build
@@ -16,7 +16,9 @@ class VideoTranscriberMcp < Formula
   end
 
   test do
-    # Test that binary exists
-    assert_predicate bin/"video-transcriber-mcp", :exist?
+    assert_path_exists bin/"video-transcriber-mcp"
+    # Actually run it: a binary that exists but won't start is still broken,
+    # and this catches a build that produced an unusable artifact.
+    assert_match version.to_s, shell_output("#{bin}/video-transcriber-mcp --version")
   end
 end
