@@ -5,9 +5,9 @@ class X402McpProxy < Formula
   # GitHub archive URL would 404 for everyone but the owner. The .crate tarball
   # is public and immutable.
   # SHA256: curl -sL <url above> | shasum -a 256
-  url "https://static.crates.io/crates/x402-mcp-proxy/x402-mcp-proxy-0.1.1.crate"
-  sha256 "455285e7e634d749ba268035ab187a4c1ffee13f6e6fd5e785cdc81e344a03ee"
-  license "MIT"
+  url "https://static.crates.io/crates/x402-mcp-proxy/x402-mcp-proxy-0.1.3.crate"
+  sha256 "b4690e1cc7f5ad9b9fa942ae5bf16be3c7c0d2f4f994f31be47703452ac04d89"
+  license any_of: ["MIT", "Apache-2.0"]
 
   depends_on "rust" => :build
 
